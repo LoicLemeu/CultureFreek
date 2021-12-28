@@ -1,0 +1,24 @@
+extends ../layout.pug 
+
+block content 
+    h1 Oeuvres 
+
+    if error
+        .alert.alert-danger(role="alert") #{error}
+    
+
+    form(method='post')
+        .form-group 
+            label(for="type") Type d'oeuvre 
+            input.form-control(type="text" id="type" name="type" placeholder="Type de l'oeuvre" value=type)
+        .form-group 
+            label(for="title") Titre 
+            input.form-control(type="text" id="title" name="title" placeholder="Titre" value=title)
+        .form-group 
+            label(for="year") Année 
+            input.form-control(type="text" id="year" name="year" value=year placeholder="Année")
+        .form-group 
+            label(for="downloadLink") Lien de téléchargement 
+            input.form-control(type="url" id="downloadLink" name="downloadLink" placeholder="Lien de téléchargement")
+        .form-group 
+            button.btn.btn-primary(type="submit") Ajouter

@@ -1,0 +1,30 @@
+html
+    head 
+        title CultureFreek - #{title}
+        block scripts 
+            script(src=process.env.BROWSER_REFRESH_URL)
+            
+    body 
+        header 
+            nav 
+                a(href="/") Accueil 
+                if session.user
+                    if session.user.isAdmin 
+                        a(href="/admin/add") Ajouter un item 
+                    a(href="/deconnexion") Se déconnecter 
+                    div Bienvenue #{session.user.firstName} #{session.user.lastName}
+                else 
+                    a(href="/inscription") Inscription
+                    a(href="/connexion") Connexion
+                
+        - var messages = getMessages()
+        if messages.notify 
+            each msg in messages.notify 
+                .alert.alert-info= msg 
+        if messages.error 
+            each msg in messages.error 
+                .alert.alert-danger= msg
+        block content 
+        block foot 
+            #footer 
+                p This is a footer

@@ -6,7 +6,7 @@ module.exports = (app) => {
     app.get('/', (req, res) => {
         let Home = require('../src/controllers/Home');
         let Controller = new Home();
-        Controller.print(req,res);
+        Controller.print(req, res);
     });
     app.get('/inscription', (req, res) => {
         let Controller = new UserRegister();

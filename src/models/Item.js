@@ -10,4 +10,15 @@ module.exports = class Item {
             details
         })
     }
+
+    baseQuery(){
+        return new Promise((resolve, reject) => {
+            ItemMongo.find((err, docs) => {
+                if(!err){
+                    resolve(docs);
+                }
+                reject(err)
+            })
+        })
+    }
 }

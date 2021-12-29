@@ -2,3 +2,12 @@ extends layout.pug
 
 block content 
     div Hello World !!!
+    ul 
+        each item in items
+            li= item.title
+                ul
+                    li Année: #{item.year}
+                        each val, name in item.details
+                            li #{name}: #{val}
+                    li
+                        a(href=item.link) #{item.link}

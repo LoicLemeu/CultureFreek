@@ -1,6 +1,9 @@
 extends layout.pug
 
-block content 
+block content
+    form(method="post")
+        input(type="search" id="siteSearch" name="siteSearch" placeholder="Entrez votre recherche ici" aria-label="Rechercher sur le site")
+        button(type="submit" id="submitBtn") Rechercher
     div Hello World !!!
     ul 
         each item in items

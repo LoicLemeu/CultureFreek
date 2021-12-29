@@ -1,13 +1,17 @@
+const Home = require('../src/controllers/Home');
 const UserRegister = require('../src/controllers/UserRegister');
 const Authentification = require('../src/controllers/Authentification');
-const AdminItem = require('../src/controllers/AdminItem')
+const AdminItem = require('../src/controllers/AdminItem');
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
-        let Home = require('../src/controllers/Home');
         let Controller = new Home();
         Controller.print(req, res);
     });
+    app.post('/', (req, res) => {
+        let Controller = new Home();
+        Controller.process(req, res);
+    })
     app.get('/inscription', (req, res) => {
         let Controller = new UserRegister();
         Controller.print(req, res);

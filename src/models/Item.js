@@ -21,4 +21,15 @@ module.exports = class Item {
             })
         })
     }
+
+    textQuery(text){
+        return new Promise((resolve, reject) => {
+            ItemMongo.find({$text: {$search: text}}).exec((err, docs) => {
+                if(!err){
+                    resolve(docs);
+                }
+                reject(err);
+            })
+        })
+    }
 }

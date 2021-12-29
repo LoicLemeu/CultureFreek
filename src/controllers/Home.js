@@ -5,17 +5,34 @@ module.exports = class Home {
         let item = new Item();
         item.baseQuery()
             .then(result => {
-                let resultTable = [];
-                for(let item of result){
-                    let details = Object.fromEntries(item.details);
-                    resultTable.push({title: item.title, year: item.year, details, link: item.link});
-                }
-                req.items = resultTable;
+                req.items = this.transformData(result);
             })
             .then(() => {
                 res.render('home', {
                     items: req.items
                 })
             })
+    }
+
+    process(req, res){
+        let item = new Item();
+        item.textQuery(req.body.siteSearch)
+            .then(result => {
+                req.items = this.transformData(result);
+            })
+            .then(() => {
+                res.render('home', {
+                    items: req.items
+                })
+            })
+    }
+
+    transformData(data){
+        let resultTable = [];
+            for(let item of data){
+                let details = Object.fromEntries(item.details);
+                resultTable.push({title: item.title, year: item.year, details, link: item.link});
+            }
+            return resultTable;
     }
 };

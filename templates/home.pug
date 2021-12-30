@@ -2,15 +2,43 @@ extends layout.pug
 
 block content
     form(method="post")
-        input(type="search" id="siteSearch" name="siteSearch" placeholder="Entrez votre recherche ici" aria-label="Rechercher sur le site")
+        select(id="searchByType" name="searchByType")
+            option(value="") Filtrer par type
+            option(value="book") Livre
+            option(value="movie") Film
+            option(value="song") Musique
+        input(type="search" id="siteSearch" name="siteSearch" placeholder="Entrez votre recherche ici" aria-label="Rechercher sur le site" value=siteSearch)
         button(type="submit" id="submitBtn") Rechercher
     div Hello World !!!
-    ul 
-        each item in items
-            li= item.title
-                ul
-                    li Année: #{item.year}
-                        each val, name in item.details
-                            li #{name}: #{val}
-                    li
-                        a(href=item.link) #{item.link}
+    ul  
+        if (books.length > 0)
+            h3 Livres
+            each item in books
+                li= item.title
+                    ul
+                        li Année: #{item.year}
+                            each val, name in item.details
+                                li #{name}: #{val}
+                        li
+                            a(href=item.link) #{item.link}
+        if (movies.length > 0)
+            h3 Films
+            each item in movies
+                li= item.title
+                    ul
+                        li Année: #{item.year}
+                            each val, name in item.details
+                                li #{name}: #{val}
+                        li
+                            a(href=item.link) #{item.link}
+        if (songs.length > 0)
+            h3 Musique
+            each item in songs
+                li= item.title
+                    ul
+                        li Année: #{item.year}
+                            each val, name in item.details
+                                li #{name}: #{val}
+                        li
+                            a(href=item.link) #{item.link}
+        

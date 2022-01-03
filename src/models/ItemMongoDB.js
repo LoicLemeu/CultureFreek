@@ -4,6 +4,7 @@ const ItemSchema = mongoose.Schema({
     title: { type: String },
     year : {  type: String },
     link : { type: String },
+    image : { type: String },
     details: { type: Map, of: String}
 });
 ItemSchema.index({'$**': 'text'});

@@ -48,6 +48,7 @@ module.exports = class AdminItem {
             request.body.title,
             request.body.year,
             request.body.downloadLink,
+            request.body.img,
             details
             
         )

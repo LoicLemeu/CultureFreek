@@ -1,5 +1,9 @@
 extends layout.pug
 
+block scripts
+    
+    link(rel="stylesheet", href="../css/home.css")
+
 block content
     form(method="post")
         select(id="searchByType" name="searchByType")
@@ -10,35 +14,56 @@ block content
         input(type="search" id="siteSearch" name="siteSearch" placeholder="Entrez votre recherche ici" aria-label="Rechercher sur le site" value=siteSearch)
         button(type="submit" id="submitBtn") Rechercher
     div Hello World !!!
-    ul  
+    ul
         if (books.length > 0)
-            h3 Livres
-            each item in books
-                li= item.title
-                    ul
-                        li Année: #{item.year}
-                            each val, name in item.details
-                                li #{name}: #{val}
-                        li
-                            a(href=item.link) #{item.link}
+            li
+                h3 Livres
+                ul.itemsList
+                    each item in books
+                        li.item 
+                            img(src=item.image width="150px" height="250px")
+                            figcaption #{item.title}
+                            ul.itemModal
+                                div.modalContent
+                                    li Année: #{item.year}
+                                        each val, name in item.details
+                                            li #{name}: #{val}
+                                    li
+                                        a(href=item.link) Lien de téléchargement : #{item.link}
+                                    button.hideButton Fermer
+                    
         if (movies.length > 0)
-            h3 Films
-            each item in movies
-                li= item.title
-                    ul
-                        li Année: #{item.year}
-                            each val, name in item.details
-                                li #{name}: #{val}
-                        li
-                            a(href=item.link) #{item.link}
+            li
+                h3 Films
+                ul.itemsList
+                    each item in movies
+                        li.item 
+                            img(src=item.image width="150px" height="250px")
+                            figcaption #{item.title}
+                            ul.itemModal
+                                div.modalContent
+                                    li Année: #{item.year}
+                                        each val, name in item.details
+                                            li #{name}: #{val}
+                                    li
+                                        a(href=item.link) Lien de téléchargement : #{item.link}
+                                    button.hideButton Fermer
         if (songs.length > 0)
-            h3 Musique
-            each item in songs
-                li= item.title
-                    ul
-                        li Année: #{item.year}
-                            each val, name in item.details
-                                li #{name}: #{val}
-                        li
-                            a(href=item.link) #{item.link}
+            li
+                h3 Musique
+                ul.itemsList
+                    each item in songs
+                        li.item 
+                            img(src=item.image width="150px" height="250px")
+                            figcaption #{item.title}
+                            ul.itemModal
+                                div.modalContent
+                                    li Année: #{item.year}
+                                        each val, name in item.details
+                                            li #{name}: #{val}
+                                    li
+                                        a(href=item.link) Lien de téléchargement : #{item.link}
+                                    button.hideButton Fermer
+    
+    script(src="../js/homeModals.js")
         

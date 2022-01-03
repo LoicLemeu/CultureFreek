@@ -70,7 +70,7 @@ module.exports = class Home {
         let resultTable = [];
         for(let item of data){
             let details = Object.fromEntries(item.details);
-            resultTable.push({type: item.type, title: item.title, year: item.year, details, link: item.link});
+            resultTable.push({type: item.type, title: item.title, year: item.year, details, link: item.link, image: item.image});
         }
         return resultTable;
     }

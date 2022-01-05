@@ -1,22 +1,31 @@
 html
     head 
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
         title CultureFreek - #{title}
-        block scripts 
-            script(src=process.env.BROWSER_REFRESH_URL)
+        script(src=process.env.BROWSER_REFRESH_URL)
+        link(rel="stylesheet", href="../css/main.css")
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap")
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        block scripts
             
     body 
-        header 
-            h1 Culture Freek
-            nav 
-                a(href="/") Accueil 
-                if session.user
-                    if session.user.isAdmin 
-                        a(href="/admin/add") Ajouter un item 
-                    a(href="/deconnexion") Se déconnecter 
-                    div Bienvenue #{session.user.firstName} #{session.user.lastName}
-                else 
-                    a(href="/inscription") Inscription
-                    a(href="/connexion") Connexion
+        header
+            div.nav
+                h1 Culture 
+                    span Freek
+                nav 
+                    a(href="/") Accueil 
+                    if session.user
+                        if session.user.isAdmin 
+                            a(href="/admin/add") Ajouter un item 
+                        a(href="/deconnexion") Se déconnecter 
+                    else 
+                        a(href="/inscription") Inscription
+                        a(href="/connexion") Connexion
+            block searchBar
                 
         - var messages = getMessages()
         if messages.notify 

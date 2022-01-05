@@ -5,67 +5,68 @@ block scripts
     link(rel="stylesheet", href="../css/form.css")
 
 block content 
-    h1 Oeuvres 
+    #main
+        h1 Oeuvres 
 
-    if error
-        .alert.alert-danger(role="alert") #{error}
-    
-
-    form(method='post')
-        .form-group 
-            label(for="type") Type d'oeuvre 
-            select.form-control(id="type" name="type")
-                option(value="") Choisir un type
-                option(value="book") Livre
-                option(value="movie") Film
-                option(value="song") Musique
-
-        div(id="bookForm" class="modalForm")
-            .form-group
-                label(for="author") Auteur 
-                input.form-control(type="text" id="author" name="author" placeholder="Auteur")
-            .form-group
-                label(for="bookSynopsis") Synopsis 
-                input.form-control(type="text" id="bookSynopsis" name="bookSynopsis" placeholder="Synopsis")
-            .form-group
-                label(for="bookGenre") Genre 
-                input.form-control(type="text" id="bookGenre" name="bookGenre" placeholder="Genre")
-
-        div(id="movieForm" class="modalForm")
-            .form-group 
-                label(for="director") Réalisateur 
-                input.form-control(type="text" id="director" name="director" placeholder="Réalisateur")
-            .form-group 
-                label(for="movieGenre") Genre 
-                input.form-control(type="text" id="movieGenre" name="movieGenre" placeholder="Genre")
-            .form-group 
-                label(for="actors") Acteurs 
-                input.form-control(type="text" id="actors" name="actors" placeholder="Acteurs")
-            .form-group 
-                label(for="movieSynopsis") Synopsis 
-                input.form-control(type="text" id="movieSynopsis" name="movieSynopsis" placeholder="Synopsis")
-
-        div(id="songForm" class="modalForm")
-            .form-group
-                label(for="artist") Artiste 
-                input.form-control(type="text" id="artist" name="artist" placeholder="Artiste")
-            .form-group
-                label(for="songGenre") Genre 
-                input.form-control(type="text" id="songGenre" name="songGenre" placeholder="Genre")
-                
-        .form-group 
-            label(for="title") Titre 
-            input.form-control(type="text" id="title" name="title" placeholder="Titre" value=title)
-        .form-group 
-            label(for="year") Année 
-            input.form-control(type="text" id="year" name="year" value=year placeholder="Année")
-        .form-group 
-            label(for="downloadLink") Lien de téléchargement 
-            input.form-control(type="url" id="downloadLink" name="downloadLink" placeholder="Lien de téléchargement")
-        .form-group 
-            label(for="img") Image
-            input.form-control(type="url" id="img" name="img" placeholder="Image")
-        .form-group 
-            button.btn.btn-primary(type="submit" id="submitBtn") Ajouter
+        if error
+            .alert.alert-danger(role="alert") #{error}
         
-        script(src="../js/form.js")
+
+        form(method='post')
+            .form-group 
+                label(for="type") Type d'oeuvre 
+                select.form-control(id="type" name="type")
+                    option(value="") Choisir un type
+                    option(value="book") Livre
+                    option(value="movie") Film
+                    option(value="song") Musique
+
+            div(id="bookForm" class="modalForm")
+                .form-group
+                    label(for="author") Auteur 
+                    input.form-control(type="text" id="author" name="author" placeholder="Auteur")
+                .form-group
+                    label(for="bookSynopsis") Synopsis 
+                    input.form-control(type="text" id="bookSynopsis" name="bookSynopsis" placeholder="Synopsis")
+                .form-group
+                    label(for="bookGenre") Genre 
+                    input.form-control(type="text" id="bookGenre" name="bookGenre" placeholder="Genre")
+
+            div(id="movieForm" class="modalForm")
+                .form-group 
+                    label(for="director") Réalisateur 
+                    input.form-control(type="text" id="director" name="director" placeholder="Réalisateur")
+                .form-group 
+                    label(for="movieGenre") Genre 
+                    input.form-control(type="text" id="movieGenre" name="movieGenre" placeholder="Genre")
+                .form-group 
+                    label(for="actors") Acteurs 
+                    input.form-control(type="text" id="actors" name="actors" placeholder="Acteurs")
+                .form-group 
+                    label(for="movieSynopsis") Synopsis 
+                    input.form-control(type="text" id="movieSynopsis" name="movieSynopsis" placeholder="Synopsis")
+
+            div(id="songForm" class="modalForm")
+                .form-group
+                    label(for="artist") Artiste 
+                    input.form-control(type="text" id="artist" name="artist" placeholder="Artiste")
+                .form-group
+                    label(for="songGenre") Genre 
+                    input.form-control(type="text" id="songGenre" name="songGenre" placeholder="Genre")
+                    
+            .form-group 
+                label(for="title") Titre 
+                input.form-control(type="text" id="title" name="title" placeholder="Titre" value=title)
+            .form-group 
+                label(for="year") Année 
+                input.form-control(type="text" id="year" name="year" value=year placeholder="Année")
+            .form-group 
+                label(for="downloadLink") Lien de téléchargement 
+                input.form-control(type="url" id="downloadLink" name="downloadLink" placeholder="Lien de téléchargement")
+            .form-group 
+                label(for="img") Image
+                input.form-control(type="url" id="img" name="img" placeholder="Image")
+            .form-group 
+                button.btn.btn-primary(type="submit" id="submitBtn") Ajouter
+            
+            script(src="../js/form.js")

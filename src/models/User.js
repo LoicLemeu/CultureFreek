@@ -2,12 +2,10 @@ const UserMongo = require('./UserMongoDB');
 const bcrypt = require('bcryptjs');
 
 module.exports = class User {
-    add(lastname, firstname, email, password){
+    add(email, password){
         bcrypt.genSalt(10, function(err, salt){
             bcrypt.hash(password, salt, function(err, hash){
                 return UserMongo.create({
-                    lastname,
-                    firstname, 
                     email, 
                     password: hash
                 });

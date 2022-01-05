@@ -31,7 +31,7 @@ block content
                                             each val, name in item.details
                                                 li #{name}: #{val}
                                         li  Lien de téléchargement : 
-                                            a(href=item.link) #{item.link}
+                                            a(href=item.link, target="_blank") #{item.link}
                                         button.hideButton Fermer
                         
             if (movies.length > 0)
@@ -48,7 +48,7 @@ block content
                                             each val, name in item.details
                                                 li #{name}: #{val}
                                         li  Lien de téléchargement : 
-                                            a(href=item.link) #{item.link}
+                                            a(href=item.link, target="_blank") #{item.link}
                                         button.hideButton Fermer
             if (songs.length > 0)
                 li
@@ -64,7 +64,7 @@ block content
                                             each val, name in item.details
                                                 li #{name}: #{val}
                                         li Lien de téléchargement : 
-                                            a(href=item.link)  #{item.link}
+                                            a(href=item.link, target="_blank")  #{item.link}
                                         button.hideButton Fermer
         
         script(src="../js/homeModals.js")

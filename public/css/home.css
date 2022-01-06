@@ -65,3 +65,19 @@ ul {
     color: #772ce8;
     text-decoration: none;
 }
+
+@media screen and (max-width: 490px) {
+    #searchBar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #searchBar select {
+        margin-bottom: 0.3rem;
+    }
+
+    #siteSearch {
+        margin-bottom: 0.3rem;
+    }
+    
+}

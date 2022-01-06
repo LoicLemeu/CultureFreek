@@ -1,4 +1,3 @@
-const { all } = require('express/lib/application');
 const Item = require('../models/Item');
 
 module.exports = class Home {

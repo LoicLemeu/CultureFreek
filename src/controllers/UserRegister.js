@@ -1,4 +1,3 @@
-const req = require('express/lib/request');
 const UserModel = require('../models/User');
 
 module.exports = class UserRegister {
